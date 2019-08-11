@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+  <style>
+    body {
+      background-color: #DDDDDD;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock style %}
+
+
+{% block body %}
+
+<div class="container pt-5">
+<div class="row">
+  <div class="col-2">
+
+  </div>
+  <div class="col-8">
+    <div class="d-flex flex-row bd-highlight pb-1">
+      <a href="{% url 'accounts-user_register' %}" class="btn btn-outline-info btn-sm">Create Account</a>
+    </div>
+
+    <div class="jumbotron bg-light text-info">
+
+      <div class="d-flex justify-content-between align-items-end">
+      <h1 class="display-4">To-do-list</h1>
+      <h1><i class="fa fa-bars pr-2"></i></h1>
+      </div>
+      <hr class="my-4">
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <form action="" method="post">
+        {% csrf_token %}
+        <!-- <input type="text" class="form-control" placeholder="Please enter Username"> -->
+        {{form.username}}
+        <br>
+        <!-- <input type="password" class="form-control" placeholder="Please enter Password"> -->
+        {{form.password}}
+        <br>
+        <button type="submit" class="btn btn-outline-info btn-block btn-sm">Login</button>
+
+          </div>
+      </form>
+
+
+
+
+
+
+
+    </div>
+  </div>
+  <div class="col-2">
+
+  </div>
+</div>
+</div>
+
+{% endblock body %}
+
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+  </body>
+</html>
